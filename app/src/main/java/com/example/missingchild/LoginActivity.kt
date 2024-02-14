@@ -1,9 +1,9 @@
-package com.example.missingchild;
+package com.example.missingchild
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -16,7 +16,7 @@ import java.io.IOException
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 
 
-import com.example.missingchild.Constants.FLASK_BASE_URL;
+import com.example.missingchild.Constants.FLASK_BASE_URL
 
 class LoginActivity : AppCompatActivity() {
 
@@ -35,11 +35,13 @@ class LoginActivity : AppCompatActivity() {
             // Handle click action to navigate to the registration activity
             val intent = Intent(this@LoginActivity, ForgotPasswordActivity::class.java)
             startActivity(intent)
+
         }
         goToRegisterTextView.setOnClickListener{
             // Handle click action to navigate to the registration activity
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
+            finish()
         }
 
         loginButton.setOnClickListener {
@@ -73,7 +75,6 @@ class LoginActivity : AppCompatActivity() {
             .build()
 
 
-        val mediaType = "application/json".toMediaTypeOrNull()
 //        val body = RequestBody.create(mediaType, formBody.toString())
 //        System.out.println(body)
         val request = Request.Builder()
@@ -85,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 e.printStackTrace()
-                System.out.println("failed");
+                System.out.println("failed")
                 // Handle failure
             }
 
@@ -97,11 +98,25 @@ class LoginActivity : AppCompatActivity() {
                     try {
                         val jsonResponse = JSONObject(responseData)
                         val message = jsonResponse.getString("message")
+
+                        val token = jsonResponse.getString("token")
                         Log.d("LoginActivity", "Response message: $message")
                         System.out.println(message)
+                        // Assume `token` is the received token from the server
 
-                        Toast.makeText( this@LoginActivity,message, Toast.LENGTH_SHORT,).show();// Log response message
+// Get the SharedPreferences instance
+                        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
+// Save the token in SharedPreferences
+                        val editor = sharedPreferences.edit()
+                        editor.putString("sessionToken", token)
+                        editor.apply()
+
+
+                        Toast.makeText( this@LoginActivity,message, Toast.LENGTH_SHORT,).show()// Log response message
+                        val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
                         // Handle response message accordingly (e.g., show a toast or navigate to another activity)
                     } catch (e: JSONException) {
                         e.printStackTrace()

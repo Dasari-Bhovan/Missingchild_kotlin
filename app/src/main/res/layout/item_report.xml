@@ -1,0 +1,105 @@
+<!-- item_report.xml -->
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+
+    android:elevation="4dp"
+    >
+
+    <LinearLayout
+        android:id="@+id/initialcard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="#82A2B0">
+
+        <!-- Image -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:padding="5dp"
+            app:strokeWidth="3dp"
+            app:strokeColor="@android:color/darker_gray"
+            app:shapeAppearanceOverlay="@style/circleImageView"
+            android:src="@drawable/ellipse"
+            android:layout_margin="0dp"
+            />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imagePhoto"-->
+<!--            android:layout_width="100dp"-->
+<!--            android:layout_height="100dp"-->
+<!--            android:src="@drawable/default_profile_image"-->
+<!--            android:scaleType="centerCrop"/>-->
+
+        <!-- Text Details -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <!-- Name -->
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <!-- Age -->
+            <TextView
+                android:id="@+id/textAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Age: "
+                android:textSize="16sp"/>
+
+            <!-- Last Seen Time -->
+            <TextView
+                android:id="@+id/textLastSeenTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Last Seen Time: "
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/textLastSeenLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Last Seen Location: "
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/textMatched"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Matched: "
+                android:textSize="16sp"/>
+
+            <!-- Add more details as needed -->
+
+
+            <LinearLayout
+                android:id="@+id/expandedView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+                <!-- Add more expanded details TextViews as needed -->
+
+
+            </LinearLayout>
+    </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sort_options">
+        <item>Name</item>
+        <item>Age</item>
+        <item>Last Seen Time</item>
+        <item>Height</item>
+        <item>Weight</item>
+        <!-- Add more sorting options as needed -->
+    </string-array>
+
+    <string-array name="sort_order">
+        <item>Min</item>
+        <item>Max</item>
+
+        <!-- Add more sorting options as needed -->
+    </string-array>
+</resources>

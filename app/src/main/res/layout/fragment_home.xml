@@ -1,0 +1,122 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- ScrollView to make the layout responsive and scrollable -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <!-- Linear layout for vertical arrangement -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Name EditText -->
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/editTextAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Age"
+                android:inputType="number" />
+            <EditText
+                android:id="@+id/editTextHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Height (in cms)"
+                android:inputType="numberDecimal" />
+
+            <EditText
+                android:id="@+id/editTextWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Weight (in kg)"
+                android:inputType="numberDecimal" />
+            <EditText
+            android:id="@+id/editTextDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description"
+            android:inputType="text|textMultiLine" />
+            <EditText
+                android:id="@+id/editTextMoles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Moles"
+                android:inputType="textPersonName" />
+            <EditText
+                android:id="@+id/editLastSeenTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Last seen time"
+                android:inputType="datetime" />
+            <EditText
+            android:id="@+id/editLastSeenAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Last seen Address"
+            android:inputType="text|textMultiLine" />
+            <EditText
+                android:id="@+id/editClothingDescriptiom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Clothing description"
+                android:inputType="text|textMultiLine" />
+            <EditText
+                android:id="@+id/editPhysicalFeatures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Physical Features"
+                android:inputType="text|textMultiLine" />
+            <EditText
+                android:id="@+id/editMedicalInformation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Medical Information"
+                android:inputType="text|textMultiLine" />
+            <EditText
+                android:id="@+id/editBehaviourFeatures"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Behaviour Characteristics"
+                android:inputType="text|textMultiLine" />
+            <EditText
+                android:id="@+id/editAlternateMobileNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Alternate Mobile Number"
+                android:inputType="number" />
+
+
+            <!-- Age EditText -->
+
+
+            <!-- Add other form fields as needed -->
+            <Button
+                android:id="@+id/selectImageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Images"
+                android:layout_centerInParent="true"
+                android:padding="16dp"
+                android:layout_gravity="center"/>
+
+            <!-- Submit Button -->
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Submit" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

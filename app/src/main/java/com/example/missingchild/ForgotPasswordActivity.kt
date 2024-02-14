@@ -16,7 +16,9 @@ class ForgotPasswordActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        supportActionBar?.hide()
         setContentView(R.layout.activity_forgot_password)
+
 
         val editTextEmail = findViewById<EditText>(R.id.editTextEmail)
         val buttonResetPassword = findViewById<Button>(R.id.buttonResetPassword)

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#82A2B0">
+
+    <!-- Search bar -->
+    <android.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:queryHint="Search reports"
+        android:layout_margin="16dp"
+        android:submitBackground="@color/white"
+        android:tooltipText="Search Reports"
+        />
+
+    <!-- Filter options -->
+    <LinearLayout
+        android:id="@+id/filterLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/searchView"
+        android:padding="16dp"
+        >
+        <EditText
+            android:id="@+id/minAgeEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Min"
+            android:inputType="number"
+            android:layout_marginEnd="8dp"/>
+
+        <!-- Dropdown for sorting -->
+
+        <EditText
+            android:id="@+id/maxAgeEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Max"
+            android:inputType="number"/>
+        <Spinner
+            android:id="@+id/sortSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/sort_options"
+            android:prompt="@string/sort_prompt"
+            android:layout_marginEnd="8dp"
+            android:popupBackground="#82A2B0"
+            />
+        <Spinner
+            android:id="@+id/sortOrderSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/sort_order"
+            android:prompt="@string/sort_prompt"
+            android:layout_marginEnd="8dp"
+            android:popupBackground="#82A2B0"/>
+
+        <!-- Min age -->
+
+
+        <!-- Max age -->
+
+
+    </LinearLayout>
+
+    <!-- RecyclerView to display reports -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/filterLayout"
+        android:padding="16dp"/>
+
+</RelativeLayout>

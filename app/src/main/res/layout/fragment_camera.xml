@@ -1,0 +1,82 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/cameraContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/capturedImageView"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:visibility="gone"
+            android:scaleType="centerCrop" />
+        <!-- PreviewView to display the camera preview -->
+        <androidx.camera.view.PreviewView
+            android:id="@+id/cameraPreviewView"
+            android:layout_width="match_parent"
+            android:layout_margin="7dp"
+            android:layout_height="350dp"
+
+            />
+
+
+
+        <!-- Add other UI elements or overlays as needed -->
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/matched_child_details"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        android:text="Matched child details:\n"/>
+    <LinearLayout
+        android:id="@+id/optionsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_margin="16dp">
+
+        <!-- Buttons for image options (e.g., correct, wrong) -->
+        <Button
+            android:id="@+id/predictButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Predict" />
+
+        <Button
+            android:id="@+id/recaptureButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Recapture"
+            />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/captureButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Capture"
+        android:visibility="visible"
+        android:layout_margin="16dp"/>
+    <!-- Add this button to switch between front and back cameras -->
+    <Button
+        android:id="@+id/switchCameraButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Switch Camera"
+        android:layout_gravity="top|end"
+        android:layout_margin="10dp"/>
+
+</LinearLayout>

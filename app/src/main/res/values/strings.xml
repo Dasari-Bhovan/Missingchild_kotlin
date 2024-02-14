@@ -4,7 +4,8 @@
 
     <string name="title_activity_forgotPassword">ForgotPasswordActivity</string>
 
-
+    <string name="user_icon_description">Icon</string>
+    <string name="user_address_placeholder">Address placeholder</string>
 
     <string name="title_activity_register">RegisterActivity</string>
 
@@ -16,4 +17,8 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="sort_prompt">Select Sorting Option</string>
+        <!-- Add more string resources as needed -->
+
+
 </resources>
