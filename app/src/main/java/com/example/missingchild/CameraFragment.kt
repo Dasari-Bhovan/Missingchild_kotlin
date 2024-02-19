@@ -50,8 +50,9 @@ class CameraFragment : Fragment() {
     private lateinit var image :File
 
     private  lateinit var child_details:TextView
-    private  lateinit var lat:String
-    private  lateinit var lon:String
+    private var lat:String=""
+    private var lon:String=""
+
 
 
     private lateinit var cameraSelector: CameraSelector
@@ -65,6 +66,7 @@ class CameraFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_camera, container, false)
+        fetchLocation()
 
         // Initialize views
          captureButton = view.findViewById(R.id.captureButton)
@@ -202,9 +204,8 @@ class CameraFragment : Fragment() {
         val sharedPreferences = context?.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
         val sessionToken = sharedPreferences?.getString("sessionToken", null)
         var token=sessionToken?:"default"
-        lat="None"
-        lon="None"
-        fetchLocation()
+
+//        fetchLocation()
         // Request body containing the image file
         val requestBody: RequestBody = MultipartBody.Builder()
             .setType(MultipartBody.FORM)
@@ -243,13 +244,19 @@ class CameraFragment : Fragment() {
 //                                userAddress.text
                 responseBody?.let {
                     val jsonObject = JSONObject(it)
-                    val name = jsonObject.getString("name")
-                    val mobile=jsonObject.getString("parent_mobile")
-                    val description = jsonObject.getString("child_description")
-                    val age = jsonObject.getString("age")
+                    val message=jsonObject.getString("message")
+                    if (message.equals("No Face matched with the records")){
+                        child_details.text="Image not Found \n Try again in better lighting conditions\n Make sure photo is clear and not blur"
+                    }
+                    else {
+                        val name = jsonObject.getString("name")
+                        val mobile = jsonObject.getString("parent_mobile")
+                        val description = jsonObject.getString("child_description")
+                        val age = jsonObject.getString("age")
 //                                        println("Address Line 1: $formatted_address")
-                    child_details.text="Miissing child details :\n\tChild Name : "+name+"\n\tChild age : "+age+"\n\tDescription : "+description+"\n\tContact their parents at   " + mobile
-
+                        child_details.text =
+                            "Miissing child details :\n\tChild Name : " + name + "\n\tChild age : " + age + "\n\tDescription : " + description + "\n\tContact their parents at   " + mobile
+                    }
 //
                 CoroutineScope(Dispatchers.Main).launch {
                     dismissLoadingDialog()

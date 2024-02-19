@@ -5,53 +5,99 @@
     android:background="#82A2B0">
 
     <!-- Search bar -->
-    <android.widget.SearchView
-        android:id="@+id/searchView"
+    <LinearLayout
+        android:id="@+id/filterLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:queryHint="Search reports"
-        android:layout_margin="16dp"
-        android:submitBackground="@color/white"
-        android:tooltipText="Search Reports"
-        />
+        android:orientation="horizontal"
+        android:padding="2dp"
+        >
 
+        <android.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="275dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="16dp"
+            android:queryHint="Search reports"
+            android:submitBackground="@color/white"
+            android:tooltipText="Search Reports" />
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Search"
+            android:background="#fff"
+            android:textColor="@color/black"/>
+    </LinearLayout>
     <!-- Filter options -->
     <LinearLayout
         android:id="@+id/filterLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_below="@id/searchView"
+        android:layout_below="@id/filterLayout1"
         android:padding="16dp"
         >
         <EditText
-            android:id="@+id/minAgeEditText"
-            android:layout_width="0dp"
+            android:id="@+id/minEditText"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
             android:hint="Min"
-            android:inputType="number"
+            android:inputType="number|date"
             android:layout_marginEnd="8dp"/>
+        <TextView
+            android:id="@+id/to"
+            android:layout_width="35dp"
+            android:layout_height="wrap_content"
+            android:textSize="20dp"
+            android:layout_marginRight="5dp"
+            android:hint="To"/>
 
         <!-- Dropdown for sorting -->
 
         <EditText
-            android:id="@+id/maxAgeEditText"
+            android:id="@+id/maxEditText"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:hint="Max"
+            android:inputType="number|date"/>
+
+
+
+        <Spinner
+            android:id="@+id/valueSpinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Max"
-            android:inputType="number"/>
+            android:entries="@array/value_options"
+            android:prompt="@string/sort_prompt"
+            android:layout_marginEnd="8dp"
+            android:popupBackground="#82A2B0"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/filterLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/filterLayout"
+        android:padding="16dp"
+        >
         <Spinner
-            android:id="@+id/sortSpinner"
+            android:id="@+id/sortItemSpinner"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:entries="@array/sort_options"
             android:prompt="@string/sort_prompt"
             android:layout_marginEnd="8dp"
-            android:popupBackground="#82A2B0"
-            />
+            android:popupBackground="#82A2B0"/>
         <Spinner
             android:id="@+id/sortOrderSpinner"
             android:layout_width="0dp"
@@ -61,6 +107,26 @@
             android:prompt="@string/sort_prompt"
             android:layout_marginEnd="8dp"
             android:popupBackground="#82A2B0"/>
+        <Spinner
+            android:id="@+id/recordSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/record_options"
+            android:prompt="@string/sort_prompt"
+            android:layout_marginEnd="8dp"
+            android:popupBackground="#82A2B0"/>
+        <Spinner
+            android:id="@+id/genderSpinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:entries="@array/gender_options"
+            android:prompt="@string/sort_prompt"
+            android:layout_marginEnd="8dp"
+            android:popupBackground="#82A2B0"/>
+
+
 
         <!-- Min age -->
 
@@ -70,12 +136,13 @@
 
     </LinearLayout>
 
+
     <!-- RecyclerView to display reports -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/filterLayout"
+        android:layout_below="@id/filterLayout2"
         android:padding="16dp"/>
 
 </RelativeLayout>

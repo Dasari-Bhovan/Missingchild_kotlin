@@ -1,5 +1,6 @@
 package com.example.missingchild
 
+import ProfileFragment
 import RecordFragment
 import android.content.pm.PackageManager
 import android.os.Bundle
@@ -74,6 +75,10 @@ class HomeActivity : AppCompatActivity() {
                 }
                 R.id.reports -> {
                     replaceFragment(RecordFragment()) // Replace with your CameraFragment
+                    true
+                }
+                R.id.profile -> {
+                    replaceFragment(ProfileFragment()) // Replace with your CameraFragment
                     true
                 }
                 // Add handling for other menu items as needed

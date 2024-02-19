@@ -23,7 +23,7 @@ import okhttp3.Response
 import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
-
+import android.os.StrictMode
 
 
 class MainActivity : AppCompatActivity() {
@@ -47,6 +47,8 @@ class MainActivity : AppCompatActivity() {
         val sessionToken = sharedPreferences.getString("sessionToken", null)
 //        checkPermissions()
         checkAndRequestPermissions()
+        val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
+        StrictMode.setThreadPolicy(policy)
 
         if (sessionToken.isNullOrEmpty()) {
             // No session token found, navigate to LoginActivity

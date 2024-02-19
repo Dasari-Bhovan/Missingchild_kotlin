@@ -1,7 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="#82A2B0">
 
     <FrameLayout
         android:id="@+id/cameraContainer"
@@ -22,6 +23,7 @@
             android:layout_margin="7dp"
             android:layout_height="350dp"
 
+
             />
 
 
@@ -36,7 +38,10 @@
         android:layout_height="200dp"
         android:textColor="@color/white"
         android:textSize="25dp"
-        android:text="Matched child details:\n"/>
+        android:layout_margin="7dp"
+        android:text="Matched child details:\n"
+        android:background="#33567F"
+        />
     <LinearLayout
         android:id="@+id/optionsLayout"
         android:layout_width="match_parent"
@@ -44,20 +49,26 @@
         android:orientation="horizontal"
         android:gravity="center"
         android:visibility="gone"
-        android:layout_margin="16dp">
+        android:layout_margin="16dp"
+        >
 
         <!-- Buttons for image options (e.g., correct, wrong) -->
         <Button
             android:id="@+id/predictButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Predict" />
+            android:text="Predict"
+            android:background="@color/white"
+            android:textColor="#33567F"/>
 
         <Button
             android:id="@+id/recaptureButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="16dp"
             android:text="Recapture"
+            android:background="@color/white"
+            android:textColor="#33567F"
             />
 
 
@@ -69,7 +80,9 @@
         android:layout_height="wrap_content"
         android:text="Capture"
         android:visibility="visible"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:background="@color/white"
+        android:textColor="#33567F"/>
     <!-- Add this button to switch between front and back cameras -->
     <Button
         android:id="@+id/switchCameraButton"
@@ -77,6 +90,8 @@
         android:layout_height="wrap_content"
         android:text="Switch Camera"
         android:layout_gravity="top|end"
-        android:layout_margin="10dp"/>
+        android:layout_margin="10dp"
+        android:background="@color/white"
+        android:textColor="#33567F"/>
 
 </LinearLayout>
