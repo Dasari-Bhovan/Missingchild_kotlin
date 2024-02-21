@@ -7,4 +7,15 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    
+    <color name="chinese_silver">#CCCCCC</color>
+    <color name="violet_blue">#3F51B5</color>
+    <color name="medium_slate_blue">#757DE8</color>
+    <color name="lavender">#DEDEFF</color>
+    <color name="button_blue">#2196F3</color>
+    <color name="midnight_blue">#003F8F</color>
+    <color name="dark_charcoal">#333333</color>
+    <color name="davy_gery">#5c5c5c</color>
+    <color name="cultured">#f5f5f5</color>
+
 </resources>

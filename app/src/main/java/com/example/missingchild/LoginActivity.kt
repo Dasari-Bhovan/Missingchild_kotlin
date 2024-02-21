@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -26,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
 
         val usernameEditText: EditText = findViewById(R.id.username_edit_text)
         val passwordEditText: EditText = findViewById(R.id.password_edit_text)
-        val loginButton: Button = findViewById(R.id.login_button)
+        val loginButton: ImageView = findViewById(R.id.login_button)
         val goToRegisterTextView = findViewById<TextView>(R.id.go_to_register_text_view)
 
         val goToForgotPassword = findViewById<TextView>(R.id.textViewForgotPassword)

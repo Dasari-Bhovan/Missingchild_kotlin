@@ -71,11 +71,12 @@
             android:layout_width="150dp"
             android:layout_height="40dp"
             android:layout_marginTop="10dp"
-            android:background="#33567F"
+            android:background="@drawable/edittext_background"
             android:hint="Age"
             android:inputType="number"
             android:textColor="#FFFFFF"
-            android:textColorHint="@color/white"/>
+            android:textColorHint="@color/white"
+            />
 
         <Spinner
             android:id="@+id/genderSpinner"
