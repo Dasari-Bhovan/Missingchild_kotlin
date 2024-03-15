@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8EEEC">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/dark_blue">
+
+<!--                <ImageView-->
+<!--                    android:id="@+id/imageView2"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    app:srcCompat="@drawable/top_background"-->
+<!--                    android:layout_marginEnd="0dp"-->
+<!--                    android:layout_marginTop="0dp"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"/>-->
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/shapableImageViewreport"
+                    android:layout_width="111dp"
+                    android:layout_height="106dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ellipse"
+                    android:visibility="visible"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/circleImageView"
+                    app:strokeColor="@android:color/darker_gray"
+                    app:strokeWidth="3dp" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="74dp"
+                    android:layout_height="34dp"
+                    android:layout_marginStart="136dp"
+                    android:layout_marginTop="44dp"
+                    android:text="Hi,"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/profileName"
+                    android:layout_width="168dp"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="172dp"
+                    android:layout_marginTop="36dp"
+                    android:text="Profile Name"
+                    android:textColor="#ffffff"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="55dp"
+                    android:layout_height="41dp"
+                    android:layout_marginStart="168dp"
+                    android:layout_marginTop="90dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/map_1" />
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="160dp"
+                    android:layout_height="51dp"
+                    android:layout_marginStart="212dp"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginEnd="50dp"
+                    android:layout_marginRight="50dp"
+                    android:text="Location"
+                    android:textColor="#ffffff"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arc_2"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    tools:ignore="MissingConstraints"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="40dp"
+                        app:cardCornerRadius="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/TotalCount"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/background_oval"
+                                android:text="40"
+                                android:textAlignment="center"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Total missing Children "
+                                android:textAlignment="center"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="40dp"
+                        app:cardCornerRadius="10dp">
+
+                        <LinearLayout
+                            android:layout_width="100dp"
+                            android:layout_height="120dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/FoundCount"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="25dp"
+                                android:background="@drawable/background_oval"
+                                android:text="40"
+                                android:textAlignment="center"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Found Children "
+                                android:textAlignment="center"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="100dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_marginTop="40dp"
+                        app:cardCornerRadius="10dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+
+                            >
+
+                            <TextView
+                                android:id="@+id/NotFoundCount"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="20dp"
+                                android:background="@drawable/background_oval"
+                                android:text="40"
+                                android:textAlignment="center"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="30sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:text="Children Still Missing"
+                                android:textAlignment="center"
+                                android:textColor="@color/dark_blue"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/addEmergencyContactText"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginTop="188dp"
+                    android:background="@drawable/search_edit_background"
+                    android:drawableStart="@drawable/emergency_contact_icon"
+
+                    android:text="\nTo add your emergency contacts .\nPlease click here"
+                    android:textColor="@color/white"
+
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="20dp"
+
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text=" Reporting  &amp; Analytics "
+                    android:textColor="@color/dark_blue"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:text=" Total Children "
+                    android:textColor="@color/dark_blue"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <Spinner
+                    android:id="@+id/totalSpinner"
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginTop="10dp"
+                    android:autofillHints="Choose an option"
+                    android:background="@color/lavender"
+                    android:entries="@array/graph_options"
+                    android:popupBackground="#F8EEEC"
+                    android:textColorHint="@color/white" />
+
+                </LinearLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/lineChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_margin="20dp"
+                        android:background="@color/white"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="24dp"
+                        tools:layout_editor_absoluteY="16dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/textViewYea"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="Year wise Statistics"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/yearSpinner"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="10dp"
+                        android:autofillHints="Choose an year"
+                        android:background="@color/lavender"
+                        android:entries="@array/year_options"
+                        android:popupBackground="#F8EEEC"
+                        android:tooltipText="Choose to select year "
+                        android:textColorHint="@color/white" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+
+                    <com.github.mikephil.charting.charts.BarChart
+                        android:id="@+id/barChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_margin="20dp"
+                        android:background="@color/white"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="24dp"
+                        tools:layout_editor_absoluteY="16dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/AgetextView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:layout_weight="1"
+                        android:text="Age Statistics"
+                        android:textColor="@color/dark_blue"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/categorySpinner"
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="10dp"
+                        android:autofillHints="Choose Category"
+                        android:background="@color/lavender"
+                        android:entries="@array/pie_options"
+                        android:popupBackground="#F8EEEC"
+                        android:tooltipText="Choose to select category "
+                        android:textColorHint="@color/white" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/pieMatchingChart"
+                        android:layout_width="match_parent"
+                        android:layout_height="300dp"
+                        android:layout_margin="20dp"
+                        android:background="@color/white"
+                        tools:ignore="MissingConstraints"
+                        tools:layout_editor_absoluteX="24dp"
+                        tools:layout_editor_absoluteY="16dp" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                <LinearLayout-->
+                <!--                    android:id="@+id/legendLayout"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_below="@id/barChart"-->
+                <!--                    android:gravity="center"-->
+                <!--                    android:layout_margin="20dp"-->
+                <!--                    android:orientation="vertical" />-->
+
+
+
+<!--                <LinearLayout-->
+<!--                    android:id="@+id/legendLayout"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@id/barChart"-->
+<!--                    android:gravity="center"-->
+<!--                    android:layout_margin="20dp"-->
+<!--                    android:orientation="vertical" />-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+    <!--    <com.google.android.material.bottomappbar.BottomAppBar-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:id="@+id/bottomAppBar"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        android:layout_gravity="bottom"-->
+    <!--        android:background="@android:color/white"-->
+    <!--        app:fabCradleMargin="10dp"-->
+    <!--        app:fabCradleRoundedCornerRadius="50dp"-->
+    <!--        tools:ignore="BottomAppBar"></com.google.android.material.bottomappbar.BottomAppBar>-->
+
+
+
+
+    <!---->
+
+    <!--</androidx.constraintlayout.widget.ConstraintLayout>-->
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
