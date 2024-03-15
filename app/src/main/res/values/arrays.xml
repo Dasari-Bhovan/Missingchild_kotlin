@@ -43,6 +43,43 @@
         <item>Male</item>
         <item>Female</item>
     </string-array>
+    <string-array name="graph_options">
+        <item>--Choose an option--</item>
+        <item>Year</item>
+        <item>Month</item>
+        <item>Week</item>
+        <item>Day</item>
+        <item>Hour</item>
+    </string-array>
+    <string-array name="year_options">
+        <item>--Choose an year--</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+    </string-array>
+    <string-array name="pie_options">
+
+        <item>All</item>
+        <item>Matched</item>
+        <item>UnMatched</item>
+
+    </string-array>
+
+    <string-array name="relation_options">
+        <item>--Choose Relationship--</item>
+        <item>Parent</item>
+        <item>Child</item>
+        <item>Sibling</item>
+        <item>Grandparent</item>
+        <item>Grandchild</item>
+        <item>Aunt/Uncle</item>
+        <item>Niece/Nephew</item>
+        <item>Cousin</item>
+        <item>Guardian</item>
+        <item>Other</item>
+    </string-array>
 
     <string-array name="india_states">
         <item>Andaman and Nicobar Islands</item>

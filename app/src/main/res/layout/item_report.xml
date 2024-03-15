@@ -21,6 +21,179 @@
         android:padding="16dp"
         android:background="#82A2B0">
 
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="16dp">
+
+            <!-- Name -->
+            <TextView
+                android:id="@+id/textName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"/>
+
+            <!-- Age -->
+            <TextView
+                android:id="@+id/textAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Age: "
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+
+            <!-- Last Seen Time -->
+            <TextView
+                android:id="@+id/textLastSeenTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Last Seen Time: "
+
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/textLastSeenLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Last Seen Location: "
+
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+            <TextView
+                android:id="@+id/textMatched"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Matched: "
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/textParentPh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Parent Mobile: "
+
+                android:textColor="@color/white"
+                android:textSize="16sp"/>
+
+
+            <!-- Add more details as needed -->
+
+
+            <LinearLayout
+                android:id="@+id/expandedView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Description: "
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="HEIGHT: "
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textWeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Weight: "
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textCloth"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="cloth: "
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textMedicalInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Matched: "
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textPhysicalFeatures"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Matched: "
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textMoles"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Matched: "
+
+                    android:textSize="16sp"
+                    android:textColor="@color/white"/>
+                <TextView
+                    android:id="@+id/textHelper_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Matched: "
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textHelperEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Matched: "
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textHelperPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Helper phone:"
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/textMatchedLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Matched Location:"
+
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+
+
+
+
+
+
+
+
+
+                <!-- Add more expanded details TextViews as needed -->
+
+
+            </LinearLayout>
+        </LinearLayout>
+
         <!-- Image -->
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/shapableImageViewreport"
@@ -42,144 +215,7 @@
 <!--            android:scaleType="centerCrop"/>-->
 
         <!-- Text Details -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginStart="16dp">
 
-            <!-- Name -->
-            <TextView
-                android:id="@+id/textName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Name"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
-
-            <!-- Age -->
-            <TextView
-                android:id="@+id/textAge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Age: "
-                android:textSize="16sp"/>
-
-            <!-- Last Seen Time -->
-            <TextView
-                android:id="@+id/textLastSeenTime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Last Seen Time: "
-                android:textSize="16sp"/>
-            <TextView
-                android:id="@+id/textLastSeenLocation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Last Seen Location: "
-                android:textSize="16sp"/>
-            <TextView
-                android:id="@+id/textMatched"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Matched: "
-                android:textSize="16sp"/>
-
-            <!-- Add more details as needed -->
-
-
-            <LinearLayout
-                android:id="@+id/expandedView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:visibility="gone">
-                <TextView
-                    android:id="@+id/textDescription"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Matched: "
-                    android:textSize="16sp"/>
-                <TextView
-                android:id="@+id/textHeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Matched: "
-                android:textSize="16sp"/>
-                <TextView
-                android:id="@+id/textWeight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Matched: "
-                android:textSize="16sp"/>
-                <TextView
-                    android:id="@+id/textCloth"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Matched: "
-                    android:textSize="16sp"/>
-                <TextView
-                android:id="@+id/textParentPh"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Matched: "
-                android:textSize="16sp"/>
-                <TextView
-                android:id="@+id/textMedicalInfo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Matched: "
-                android:textSize="16sp"/>
-                <TextView
-                android:id="@+id/textPhysicalFeatures"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Matched: "
-                android:textSize="16sp"/>
-                <TextView
-                android:id="@+id/textMoles"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Matched: "
-                android:textSize="16sp"/>
-                <TextView
-                android:id="@+id/textHelper_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Matched: "
-                android:textSize="16sp"/>
-                <TextView
-                    android:id="@+id/textHelperEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Matched: "
-                    android:textSize="16sp"/>
-                <TextView
-                    android:id="@+id/textHelperPhone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Helper phone:"
-                    android:textSize="16sp"/>
-                <TextView
-                    android:id="@+id/textMatchedLocation"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Matched Location:"
-                    android:textSize="16sp"/>
-
-
-
-
-
-
-
-
-
-                <!-- Add more expanded details TextViews as needed -->
-
-
-            </LinearLayout>
-    </LinearLayout>
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>

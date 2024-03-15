@@ -2,7 +2,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#82A2B0">
+    android:background="#F8EEEC">
 
     <FrameLayout
         android:id="@+id/cameraContainer"
@@ -36,12 +36,12 @@
         android:id="@+id/matched_child_details"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:textColor="@color/white"
-        android:textSize="25dp"
         android:layout_margin="7dp"
+        android:background="@color/dark_blue"
         android:text="Matched child details:\n"
-        android:background="#33567F"
-        />
+        android:textColor="@color/white"
+        android:textSize="25dp" />
+
     <LinearLayout
         android:id="@+id/optionsLayout"
         android:layout_width="match_parent"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:text="Predict"
             android:background="@color/white"
-            android:textColor="#33567F"/>
+            android:textColor="@color/white"/>
 
         <Button
             android:id="@+id/recaptureButton"
@@ -68,7 +68,7 @@
             android:layout_margin="16dp"
             android:text="Recapture"
             android:background="@color/white"
-            android:textColor="#33567F"
+            android:textColor="@color/white"
             />
 
 
@@ -82,7 +82,7 @@
         android:visibility="visible"
         android:layout_margin="16dp"
         android:background="@color/white"
-        android:textColor="#33567F"/>
+        android:textColor="@color/white"/>
     <!-- Add this button to switch between front and back cameras -->
     <Button
         android:id="@+id/switchCameraButton"
@@ -91,7 +91,7 @@
         android:text="Switch Camera"
         android:layout_gravity="top|end"
         android:layout_margin="10dp"
-        android:background="@color/white"
-        android:textColor="#33567F"/>
+        android:background="@color/lavender"
+        android:textColor="@color/white"/>
 
 </LinearLayout>

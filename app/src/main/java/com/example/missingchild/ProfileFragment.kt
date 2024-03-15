@@ -20,19 +20,21 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
-import androidx.camera.video.StreamInfo
 import androidx.compose.ui.Modifier
 import androidx.fragment.app.Fragment
 import com.example.missingchild.Constants
+import com.example.missingchild.LoginActivity
 import com.example.missingchild.R
 import com.google.android.material.imageview.ShapeableImageView
 import kotlinx.coroutines.handleCoroutineException
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.asRequestBody
+import org.json.JSONException
 import org.json.JSONObject
 import java.io.File
 import java.io.IOException
@@ -74,19 +76,21 @@ class ProfileFragment : Fragment() {
     private lateinit var viewEmail:TextView
     lateinit var genderSpinner:Spinner
 
+    lateinit var logoutButton: Button
 
 
 
 
 
 
-    private lateinit var changePictureButton: Button
+    private lateinit var changePictureButton: ImageView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        return inflater.inflate(R.layout.temp_profile, container, false)
+
     }
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -105,6 +109,7 @@ class ProfileFragment : Fragment() {
 
         client = OkHttpClient()
         genderSpinner=view.findViewById(R.id.genderSpinner)
+        logoutButton=view.findViewById(R.id.logoutButton)
         // Fetch user profile data
 
         fetchUserProfile()
@@ -167,6 +172,71 @@ class ProfileFragment : Fragment() {
         changePictureButton.setOnClickListener {
             openImagePicker()
         }
+
+        logoutButton.setOnClickListener{
+            val sharedPreferences = context?.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+            val sessionToken = sharedPreferences?.getString("sessionToken", null) ?: "default"
+            makeLogoutRequest(sessionToken.toString())
+        }
+
+    }
+    private fun makeLogoutRequest(sessionToken:String) {
+        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.remove("sessionToken")
+        editor.apply()
+
+        val url = Constants.FLASK_BASE_URL +"/logout"
+
+        val client = OkHttpClient()
+
+        val formBody = FormBody.Builder()
+            .add("token", sessionToken)
+            .build()
+
+
+
+//        val body = RequestBody.create(mediaType, formBody.toString())
+//        System.out.println(body)
+        val request = Request.Builder()
+            .url(url)
+            .post(formBody)
+            .addHeader("Content-Type", "application/x-www-form-urlencoded")
+            .build()
+
+        client.newCall(request).enqueue(object : Callback {
+            override fun onFailure(call: Call, e: IOException) {
+                e.printStackTrace()
+                System.out.println("failed");
+                // Handle failure
+            }
+
+            override fun onResponse(call: Call, response: Response) {
+                val responseData = response.body?.string()
+                Log.d("LogoutActivity", "Response: $responseData") // Log response for debugging
+
+                activity?.runOnUiThread {
+                    try {
+                        val jsonResponse = JSONObject(responseData)
+                        val message = jsonResponse.getString("message")
+
+                        Log.d("LogoutActivity", "Response message: $message")
+                        System.out.println(message)
+                        // Assume `token` is the received token from the server
+
+
+
+
+                        // Handle response message accordingly (e.g., show a toast or navigate to another activity)
+                    } catch (e: JSONException) {
+                        e.printStackTrace()
+                    }
+                }
+            }
+        })
+        val intent = Intent(requireContext(), LoginActivity::class.java)
+        startActivity(intent)
+        requireActivity().finish()
 
     }
 
@@ -392,9 +462,9 @@ private fun updateProfile(phoneNumber: String, fullName: String,gender:String,he
 //
 ////
 //                fetchUserProfile()
-//            } else {
-//
-//            }
+             else {
+                Toast.makeText(requireContext(),"Profile not updated",Toast.LENGTH_SHORT).show()
+            }
 //        }
 //    })
 }

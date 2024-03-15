@@ -3,6 +3,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.FormBody
@@ -17,11 +18,18 @@ class ForgotPasswordActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.hide()
-        setContentView(R.layout.activity_forgot_password)
+        setContentView(R.layout.new_activity_forgot_password)
 
 
         val editTextEmail = findViewById<EditText>(R.id.editTextEmail)
         val buttonResetPassword = findViewById<Button>(R.id.buttonResetPassword)
+        val loginButton=findViewById<TextView>(R.id.go_to_login)
+
+        loginButton.setOnClickListener{
+            val intent = Intent(this@ForgotPasswordActivity, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         buttonResetPassword.setOnClickListener {
             val email = editTextEmail.text.toString().trim()

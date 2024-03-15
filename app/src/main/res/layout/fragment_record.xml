@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#82A2B0">
+    android:background="#F8EEEC">
 
     <!-- Search bar -->
     <LinearLayout
@@ -23,17 +23,17 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="16dp"
             android:queryHint="Search reports"
-            android:submitBackground="@color/white"
+            android:submitBackground="@color/dark_blue"
             android:tooltipText="Search Reports" />
 
         <Button
             android:id="@+id/searchButton"
-            android:layout_width="80dp"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="#fff"
             android:text="Search"
-            android:textColor="@color/black" />
+            android:textColor="@color/white" />
     </LinearLayout>
     <!-- Filter options -->
     <LinearLayout
@@ -57,7 +57,8 @@
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_marginRight="5dp"
-            android:hint="To"/>
+            android:text="To"
+            android:textColor="@color/dark_blue"/>
 
         <!-- Dropdown for sorting -->
 
@@ -78,7 +79,7 @@
             android:entries="@array/value_options"
             android:prompt="@string/sort_prompt"
             android:layout_marginEnd="8dp"
-            android:popupBackground="#82A2B0"
+            android:popupBackground="#F8EEEC"
             />
     </LinearLayout>
     <LinearLayout
@@ -97,7 +98,7 @@
             android:entries="@array/sort_options"
             android:prompt="@string/sort_prompt"
             android:layout_marginEnd="8dp"
-            android:popupBackground="#82A2B0"/>
+            android:popupBackground="#F8EEEC"/>
         <Spinner
             android:id="@+id/sortOrderSpinner"
             android:layout_width="0dp"
@@ -106,7 +107,7 @@
             android:entries="@array/sort_order"
             android:prompt="@string/sort_prompt"
             android:layout_marginEnd="8dp"
-            android:popupBackground="#82A2B0"/>
+            android:popupBackground="#F8EEEC"/>
         <Spinner
             android:id="@+id/recordSpinner"
             android:layout_width="0dp"
@@ -115,7 +116,7 @@
             android:entries="@array/record_options"
             android:prompt="@string/sort_prompt"
             android:layout_marginEnd="8dp"
-            android:popupBackground="#82A2B0"/>
+            android:popupBackground="#F8EEEC"/>
         <Spinner
             android:id="@+id/genderSpinner"
             android:layout_width="0dp"
@@ -124,7 +125,7 @@
             android:entries="@array/gender_options"
             android:prompt="@string/sort_prompt"
             android:layout_marginEnd="8dp"
-            android:popupBackground="#82A2B0"/>
+            android:popupBackground="#F8EEEC"/>
 
 
 

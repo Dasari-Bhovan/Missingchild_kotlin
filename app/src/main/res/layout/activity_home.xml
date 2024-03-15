@@ -1,61 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
-    <!-- Top Navigation Bar -->
-    <LinearLayout
-        android:id="@+id/top_navigation_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:padding="8dp">
+    tools:context=".MainActivity"
+    android:background="#F8EEEC">
 
-        <!-- User Icon (Replace with your icon) -->
-        <ImageView
-            android:id="@+id/user_icon"
-            android:layout_width="100px"
-            android:layout_height="100px"
-            android:src="@drawable/ic_profile"
-            android:contentDescription="@string/user_icon_description" />
-
-        <!-- User Location/Address -->
-        <TextView
-            android:id="@+id/user_address"
-            android:layout_width="600px"
-            android:layout_height="100px"
-            android:textSize="14sp"
-            android:textColor="@android:color/white"
-            android:text="@string/user_address_placeholder"
-            android:paddingStart="8dp" />
-    </LinearLayout>
-
-    <!-- Middle Container for Fragments (Add your fragment content here) -->
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/relativelayout"
-        android:layout_marginBottom="60dp"
-        android:layout_marginTop="45dp"
-        android:padding="5dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:layout_marginBottom="100dp">
+
         <FrameLayout
             android:id="@+id/fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent"
+            />
 
     </RelativeLayout>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomnav"
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:layout_below="@id/relativelayout"
+        android:id="@+id/bottomAppBar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="1dp"
+        android:layout_height="51dp"
+        android:layout_gravity="bottom"
+        app:fabCradleMargin="10dp"
+        android:layout_marginTop="10dp"
+        app:fabCradleRoundedCornerRadius="50dp"
+        app:fabCradleVerticalOffset="10dp">
 
-        app:menu="@menu/bottom_navigation_menu"></com.google.android.material.bottomnavigation.BottomNavigationView>
-</RelativeLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_navigation_menu" />
+
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_add_circle"
+        app:layout_anchor="@id/bottomAppBar"
+        app:maxImageSize="40dp"
+        />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

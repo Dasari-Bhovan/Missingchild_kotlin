@@ -3,6 +3,8 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.*
@@ -20,7 +22,14 @@ class RegisterActivity : AppCompatActivity() {
         val editTextFullName = findViewById<EditText>(R.id.editTextFullName)
         val editTextPassword = findViewById<EditText>(R.id.editTextPassword)
         val editTextConfirmPassword = findViewById<EditText>(R.id.editTextConfirmPassword)
-        val buttonRegister = findViewById<Button>(R.id.buttonRegister)
+        val buttonRegister = findViewById<ImageView>(R.id.buttonRegister)
+        val backToLogin=findViewById<TextView>(R.id.go_to_login)
+
+        backToLogin.setOnClickListener{
+            val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         buttonRegister.setOnClickListener {
             val email = editTextEmail.text.toString().trim()
@@ -29,42 +38,48 @@ class RegisterActivity : AppCompatActivity() {
             val password = editTextPassword.text.toString().trim()
             val confirmPassword = editTextConfirmPassword.text.toString().trim()
 
-            if (email.isEmpty() && phoneNumber.isEmpty() && fullName.isEmpty() && password.isEmpty() && confirmPassword.isEmpty()) {
-            Toast.makeText(this@RegisterActivity, "All fields are required", Toast.LENGTH_SHORT).show()
-            return@setOnClickListener
-        }
 
-        else if (email.isEmpty()) {
+
+
+         if (email.isEmpty()) {
                 // Show an error message indicating both fields are required
                 // For example, you can show a Toast message or set an error on the EditTexts
                 editTextEmail.error = "Email is required"
 
             }
-            else if (password.isEmpty()){
+             if (password.isEmpty()){
                 editTextPassword.error = "Password is required"
             }
-            else if (confirmPassword.isEmpty()){
+             if (confirmPassword.isEmpty()){
                 editTextConfirmPassword.error="Confirm Password is required"
             }
-            else if (phoneNumber.isEmpty()){
+             if (phoneNumber.isEmpty()){
                 editTextPhoneNumber.error="Phone Number is required"
             }
-            else if(fullName.isEmpty()){
+            if(fullName.isEmpty()){
                 editTextFullName.error="Full name is required"
             }
 
 
-            else if (password != confirmPassword) {
-                Toast.makeText(this@RegisterActivity, "Passwords do not match", Toast.LENGTH_SHORT).show()
+
+            if (email.isEmpty() && phoneNumber.isEmpty() && fullName.isEmpty() && password.isEmpty() && confirmPassword.isEmpty()) {
+                Toast.makeText(this@RegisterActivity, "All fields are required", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
+            else if (password != confirmPassword) {
+                Toast.makeText(this@RegisterActivity, "Passwords do not match", Toast.LENGTH_SHORT).show()
+                editTextConfirmPassword.error="Password donot match"
+                return@setOnClickListener
+            }
+
             else {
 
                 sendRegistrationRequest(email, phoneNumber, fullName, password)
-                System.out.println("Registration Successful ")
+//                System.out.println("Registration Successful ")
 
             }
         }
+
     }
 
     private fun sendRegistrationRequest(email: String, phoneNumber: String, fullName: String, password: String) {
@@ -88,6 +103,7 @@ class RegisterActivity : AppCompatActivity() {
         client.newCall(request).enqueue(object : Callback {
             override fun onFailure(call: Call, e: IOException) {
                 e.printStackTrace()
+                println("Registration Failed")
                 runOnUiThread {
                     Toast.makeText(this@RegisterActivity, "Registration failed. Please try again later.", Toast.LENGTH_SHORT).show()
                 }

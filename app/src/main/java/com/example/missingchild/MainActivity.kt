@@ -4,6 +4,8 @@ import android.content.Context
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.ConnectivityManager
+import android.net.NetworkCapabilities
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
@@ -24,6 +26,8 @@ import org.json.JSONException
 import org.json.JSONObject
 import java.io.IOException
 import android.os.StrictMode
+import android.provider.Settings
+import androidx.appcompat.app.AlertDialog
 
 
 class MainActivity : AppCompatActivity() {
@@ -47,12 +51,16 @@ class MainActivity : AppCompatActivity() {
         val sessionToken = sharedPreferences.getString("sessionToken", null)
 //        checkPermissions()
         checkAndRequestPermissions()
+        if (!isNetworkAvailable()) {
+            buildAlertMessageNoInternet()
+        }
         val policy = StrictMode.ThreadPolicy.Builder().permitAll().build()
         StrictMode.setThreadPolicy(policy)
 
         if (sessionToken.isNullOrEmpty()) {
             // No session token found, navigate to LoginActivity
             val intent = Intent(this, LoginActivity::class.java)
+
             startActivity(intent)
             finish() // Optionally, finish MainActivity
         } else {
@@ -89,6 +97,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    private fun buildAlertMessageNoInternet() {
+        val builder = AlertDialog.Builder(this)
+        builder.setMessage("Active internet connection is required. Please enable internet and try again.")
+            .setCancelable(false)
+            .setPositiveButton("Settings") { _, _ ->
+                startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
+            }
+            .setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
+
+        val alert = builder.create()
+        alert.show()
+    }
+
+    private fun isNetworkAvailable() =
+        (this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).run {
+            getNetworkCapabilities(activeNetwork)?.run {
+                hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR)
+                        || hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                        || hasTransport(NetworkCapabilities.TRANSPORT_ETHERNET)
+            } ?: false
+        }
 
 
     private fun hasLocationPermission(): Boolean {

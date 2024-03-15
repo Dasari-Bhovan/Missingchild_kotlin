@@ -1,4 +1,5 @@
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Color
@@ -21,10 +22,13 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.compose.ui.graphics.Canvas
 import androidx.compose.ui.text.font.FontWeight
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.core.content.ContextCompat.startActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.missingchild.Constants.FLASK_BASE_URL
+import com.example.missingchild.MapActivity
 import com.example.missingchild.R
 import com.google.android.material.imageview.ShapeableImageView
 import kotlinx.coroutines.Dispatchers
@@ -32,8 +36,10 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import org.json.JSONArray
 import org.json.JSONObject
+import java.io.FileNotFoundException
 import java.io.IOException
 import java.net.URL
+import java.security.AccessController.getContext
 
 class RecordFragment : Fragment() {
 
@@ -371,6 +377,7 @@ class ReportAdapter : RecyclerView.Adapter<ReportAdapter.ReportViewHolder>() {
         val descriptionTextView: TextView = itemView.findViewById(R.id.textDescription)
         val parentMobileTextView: TextView = itemView.findViewById(R.id.textParentPh)
         val heightTextView: TextView = itemView.findViewById(R.id.textHeight)
+        val weightTextView: TextView = itemView.findViewById(R.id.textWeight)
         val medicalInformationTextView: TextView = itemView.findViewById(R.id.textMedicalInfo)
         val molesTextView: TextView = itemView.findViewById(R.id.textMoles)
         val physicalFeaturesTextView: TextView = itemView.findViewById(R.id.textPhysicalFeatures)
@@ -380,6 +387,8 @@ class ReportAdapter : RecyclerView.Adapter<ReportAdapter.ReportViewHolder>() {
         val helperPhoneTextView: TextView = itemView.findViewById(R.id.textHelperPhone)
         val shapeableImageView:ShapeableImageView = itemView.findViewById(R.id.shapableImageViewreport);
         val textMatchedLocation:TextView = itemView.findViewById(R.id.textMatchedLocation)
+
+
 
         // Base64 encoded string representing your image
 
@@ -401,19 +410,22 @@ class ReportAdapter : RecyclerView.Adapter<ReportAdapter.ReportViewHolder>() {
             ageEditText.text= "Age: "+report.age.toString()
             LastSeenEditText.text="Last seen time: "+report.last_seen_time
             LastSeenLocEditText.text="Last Seen Location:"+report.last_seen_location
+
             matchedEditText.text="Matched:"+report.matched
             parentMobileTextView.text = "Parent Mobile: ${report.alternateMobile}"
             clothingDescriptionTextView.text = "Clothing Description: ${report.clothingDescription}"
             descriptionTextView.text = "Description: ${report.description}"
             heightTextView.text = "Height: ${report.height}"
+            weightTextView.text="Weight:${report.weight}"
             medicalInformationTextView.text = "Medical Information: ${report.medicalInformation}"
             molesTextView.text = "Moles: ${report.moles}"
             physicalFeaturesTextView.text = "Physical Features: ${report.physical_features}"
-            val url = URL("https://res.cloudinary.com/dognhm5vd/image/upload/v1707997728/training/${report.images}/1.png.jpg")
-            val bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream())
-            val circularBitmap = getCircularBitmap(bmp)
-
-            shapeableImageView.setImageBitmap(circularBitmap)
+            try {
+                val url =
+                    URL("https://res.cloudinary.com/dognhm5vd/image/upload/v1707997728/training/${report.images}/1.png.jpg")
+                val bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream())
+                val circularBitmap = getCircularBitmap(bmp)
+                shapeableImageView.setImageBitmap(circularBitmap)
 //            if (report.base64String!="") {
 //                val base64String = "your_base64_encoded_image_here"
 //
@@ -425,7 +437,17 @@ class ReportAdapter : RecyclerView.Adapter<ReportAdapter.ReportViewHolder>() {
 //                // Set the bitmap to the ShapeableImageView
 //                shapeableImageView.setImageBitmap(decodedByte)
 //            }
-            // Set the bitmap to the ShapeableImageView
+                // Set the bitmap to the ShapeableImageView
+            }
+            catch (e:IOException){
+                val x="no url"
+            }
+            catch (e:FileNotFoundException){
+                val x="no"
+            }
+            finally {
+                val i="Not found"
+            }
             if (report.matched){
                 helperNameTextView.text="Helper Full name:${report.helper_fullname}"
 
@@ -433,6 +455,14 @@ class ReportAdapter : RecyclerView.Adapter<ReportAdapter.ReportViewHolder>() {
 
                 helperPhoneTextView.text="Helper Mobile Number:${report.helper_phonenumber}"
                 textMatchedLocation.text="Matched Location:${report.matched_Location}"
+                textMatchedLocation.setOnClickListener{
+                    val intent = Intent(itemView.context , MapActivity::class.java)
+
+                        intent.putExtra("lat", report.matched_Location.get(0).toString().toDouble())
+                        intent.putExtra("lon", report.matched_Location.get(1).toString().toDouble())
+
+                    itemView.context.startActivity(intent)
+                }
 
             }
             else{

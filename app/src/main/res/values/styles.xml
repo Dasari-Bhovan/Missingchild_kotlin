@@ -1,10 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Base application theme -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <color name="primary_100">#019b98</color>
+    <color name="primary_200">#55ccc9</color>
+    <color name="primary_300">#c1ffff</color>
+
+    <!-- Accent Colors -->
+    <color name="accent_100">#dd0025</color>
+    <color name="accent_200">#ffbfab</color>
+
+    <!-- Text Colors -->
+    <color name="text_100">#014e60</color>
+    <color name="text_200">#3f7a8d</color>
+
+    <!-- Background Colors -->
+    <color name="bg_100">#fbfbfb</color>
+    <color name="bg_200">#f1f1f1</color>
+    <color name="bg_300">#c8c8c8</color>
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/midnight_blue</item>
+        <item name="colorPrimaryVariant">@color/midnight_blue</item>
+        <item name="colorOnPrimary">@color/button_blue</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSecondaryVariant">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here -->
         <!-- Other style attributes -->
     </style>
+    <style name="CustomMaterialTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/primary_200</item>
+        <item name="colorPrimaryVariant">@color/primary_300</item>
+
+        <!-- Accent Colors -->
+        <item name="colorAccent">@color/accent_200</item>
+
+        <!-- Text Colors -->
+        <item name="android:textColorPrimary">@color/text_100</item>
+        <item name="android:textColorSecondary">@color/text_200</item>
+
+        <!-- Background Colors -->
+        <item name="android:windowBackground">@color/bg_100</item>
+    </style>
+    <style name="Bottomnav" parent="Theme.MaterialComponents"></style>
     <style name="circleImageView" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>

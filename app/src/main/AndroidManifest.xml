@@ -4,12 +4,19 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
 
+    <uses-feature android:glEsVersion="0x00020000" android:required="true" />
+
+
+    <uses-feature android:glEsVersion="0x00030000" android:required="true" />
+
     <!-- LOCATION PERMISSION -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+
+
 
 
     <!-- STORAGE PERMISSION -->
@@ -25,33 +32,38 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
+        android:theme="@style/CustomMaterialTheme"
         tools:targetApi="31">
         <activity
             android:name=".RegisterActivity"
             android:exported="true"
             android:label="@string/title_activity_register"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/CustomMaterialTheme"/>
         <activity
             android:name=".LoginActivity"
             android:exported="true"
             android:label="@string/title_activity_login"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/CustomMaterialTheme"/>
         <activity
             android:name=".HomeActivity"
             android:exported="true"
             android:label="@string/title_activity_forgotPassword"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/CustomMaterialTheme"/>
+        <activity
+            android:name=".MapActivity"
+            android:exported="true"
+            android:label="@string/title_activity_map"
+            android:theme="@style/CustomMaterialTheme"/>
         <activity
             android:name=".ForgotPasswordActivity"
             android:exported="true"
             android:label="@string/title_activity_forgotPassword"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:theme="@style/CustomMaterialTheme"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/CustomMaterialTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

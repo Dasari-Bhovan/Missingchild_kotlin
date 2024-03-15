@@ -4,6 +4,8 @@
 
     <string name="title_activity_forgotPassword">ForgotPasswordActivity</string>
 
+    <string name="title_activity_map">MapActivity</string>
+
     <string name="user_icon_description">Icon</string>
     <string name="user_address_placeholder">Address placeholder</string>
 
